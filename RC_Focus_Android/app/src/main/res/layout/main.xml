@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kviation.sample.orientation.MainActivity"
+    android:background="@drawable/focus_belter">
+
+    <com.kviation.sample.orientation.RCFocus
+        android:id="@+id/rc_focus"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="160dp"
+        android:layout_marginEnd="252dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/brake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="84dp"
+        android:background="@null"
+        android:src="@drawable/fekpedal_kapcsolo"
+        android:text="Brake"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageButton
+        android:id="@+id/accelerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="56dp"
+        android:background="@null"
+        android:src="@drawable/gazpedal_kapcsolo"
+        android:text="Accelerate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/brake" />
+
+    <ImageButton
+        android:id="@+id/lightSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="160dp"
+        android:background="@null"
+        android:src="@drawable/lampa_kapcsolo_ki"
+        android:text="Light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/shiftUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:text="ShiftUp"
+        android:background="@null"
+        android:src="@drawable/valto_felul"
+        app:layout_constraintBottom_toTopOf="@+id/shiftDown"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageButton
+        android:id="@+id/shiftDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:background="@null"
+        android:src="@drawable/valto_alul"
+        android:text="ShiftDown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/volDownButton"
+        android:layout_width="22dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="35dp"
+        android:background="@null"
+        android:text=" "
+        app:layout_constraintStart_toStartOf="@+id/radioView"
+        app:layout_constraintTop_toTopOf="@+id/radioView" />
+
+    <Button
+        android:id="@+id/volUpButton"
+        android:layout_width="22dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="35dp"
+        android:background="@null"
+        android:text=" "
+        app:layout_constraintStart_toEndOf="@+id/volDownButton"
+        app:layout_constraintTop_toTopOf="@+id/radioView" />
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@null"
+        android:text=" "
+        app:layout_constraintStart_toStartOf="@+id/radioView"
+        app:layout_constraintTop_toTopOf="@+id/radioView" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="48dp"
+        android:background="@null"
+        android:text=" "
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintTop_toTopOf="@+id/radioView" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="48dp"
+        android:background="@null"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/radioView" />
+
+
+    <ImageView
+        android:id="@+id/radioView"
+        android:layout_width="190dp"
+        android:layout_height="98dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/radio" />
+
+    <TextView
+        android:id="@+id/radioText"
+        android:layout_width="58dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="44dp"
+        android:text="STOP"
+        app:layout_constraintEnd_toEndOf="@+id/radioView"
+        app:layout_constraintTop_toTopOf="@+id/radioView" />
+
+
+</android.support.constraint.ConstraintLayout>
