@@ -36,7 +36,14 @@ public class MainActivity extends AppCompatActivity implements Orientation.Liste
   private String lightCommand = "LIG";
   private String angleCommand = "ANG";
   private String shiftCommand = "SHI";
+  private String musicCommand = "MUS";
   private String messageClose = "@";
+  private final String playCommand = "1";
+  private final String stopyCommand = "2";
+  private final String nextCommand = "3";
+  private final String prevCommand = "4";
+  private final String volUpCommand = "5";
+  private final String volDownCommand = "6";
 
   private String address = "00:21:13:00:F8:A2"; //Address of the BT
   //private String address = "5C:2E:59:0B:82:58"; //Address of the BT
@@ -149,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements Orientation.Liste
       public void onClick(View view) {
         /*BT send next to playes*/
         playerText.setText("Next");
+        bl.sendData(musicCommand + nextCommand + messageClose + "\r");
       }
     });
 
@@ -157,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements Orientation.Liste
       public void onClick(View view) {
         /*BT send next to playes*/
         playerText.setText("Prev");
+        bl.sendData(musicCommand + prevCommand + messageClose + "\r");
       }
     });
 
@@ -167,9 +176,11 @@ public class MainActivity extends AppCompatActivity implements Orientation.Liste
         if (isPlaying) {
           isPlaying = false;
           playerText.setText("STOP");
+          bl.sendData(musicCommand + stopyCommand + messageClose + "\r");
         } else {
           isPlaying = true;
           playerText.setText("Play");
+          bl.sendData(musicCommand + playCommand + messageClose + "\r");
         }
       }
     });
@@ -179,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements Orientation.Liste
       public void onClick(View view) {
         /*BT send next to playes*/
         playerText.setText("Vol -");
+        bl.sendData(musicCommand + volDownCommand + messageClose + "\r");
       }
     });
 
@@ -187,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements Orientation.Liste
       public void onClick(View view) {
         /*BT send next to playes*/
         playerText.setText("Vol +");
+        bl.sendData(musicCommand + volUpCommand + messageClose + "\r");
       }
     });
 
