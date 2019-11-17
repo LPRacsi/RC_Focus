@@ -47,14 +47,14 @@ DFRobotDFPlayerMini myDFPlayer;
 
 
 #define TURN_SIGNAL_BLINK_TIME 500 //us
-#define CONNECTION_LOST_TIME 2000 //us
+#define CONNECTION_LOST_TIME 10000 //us
 
 char incomingByte = "";   // for incoming serial data
 String message, command;
 bool commandReceived, blinkRight, blinkLeft, rTurnIsOn, lTurnIsOn, connLostHandelled, acceleratePressed;
 short value, lightOnOff, servoAngle, gear, targetPWM, actualPWM;
 unsigned long currTime, lastRightBlinkTime, lastLeftBlinkTime, lastCommandTime, prevSpeedUpdateTime;
-unsigned short gearPWM[] = {-150, 0, 150, 170, 200, 220, 250};
+unsigned short gearPWM[] = {80, 0, -80, -100, -120, -140, -160};
 //int command2;
 /*
    Function:    blinkRightTurnSignal
@@ -254,13 +254,19 @@ void cotrolSpeed(int speedPWM){
 void controlVehicleSpeed(short toPWM, short fromPWM){
   currTime = millis();
   if (currTime - prevSpeedUpdateTime > 250){
+  /*Serial.print("fromPWM: ");
+  Serial.println(fromPWM);
+  Serial.print("toPWM: ");
+  Serial.println(toPWM);*/  
     if (toPWM > fromPWM){
-      fromPWM = fromPWM + 2;
+      fromPWM = fromPWM + 10;
     }else if (toPWM < fromPWM){
-      fromPWM = fromPWM - 2;
+      fromPWM = fromPWM - 20;
     }
     actualPWM = fromPWM;
     cotrolSpeed(actualPWM);
+    /*Serial.print("actualPWM: ");
+    Serial.println(actualPWM);*/
     prevSpeedUpdateTime = millis();
   }
 }
@@ -410,6 +416,10 @@ void loop() {
     command = "";
     value = 0;
   }
+      // This is just a temp.
+    //targetPWM = -130;
+      // This is just a temp.
+    //acceleratePressed = true;
   if (!connLostHandelled) {
     if (blinkRight || rTurnIsOn) {
       blinkRightTurnSignal();
